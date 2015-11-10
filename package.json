@@ -1,0 +1,24 @@
+{
+  "name": "AwesomeProject",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "commit": "git-cz"
+  },
+  "dependencies": {
+    "react-native": "^0.14.2"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run test && npm run check-coverage"
+    }
+  },
+  "devDependencies": {
+    "commitizen": "^2.4.4",
+    "cz-conventional-changelog": "^1.1.4"
+  }
+}
