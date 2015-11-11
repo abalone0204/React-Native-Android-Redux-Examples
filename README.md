@@ -12,7 +12,7 @@
 
 1. Counter 
 
-![demo-counter]('./demoImgs/demo-counter.png')
+![demo-counter]('https://github.com/abalone0204/React-Native-Android-Redux-Examples/blob/master/demoImgs/demo-counter.png')
 
 ## Build
 
@@ -27,17 +27,17 @@ react-native run
 
 ## Todos
 
-[] Navbar
+- [] Navbar
 
-[v] Counter
+- [v] Counter
 
-[] Todos
+- [] Todos
 
-[] Todos with undo
+- [] Todos with undo
 
-[] Reddit
+- [] Reddit
 
-[] Real World 
+- [] Real World 
 
 ## Issues
 
