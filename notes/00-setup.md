@@ -46,3 +46,8 @@ adb shell input keyevent 82
 - 回到 app，再搖兩下，選擇 Reload JS
 
 - [參考資料：Running on device: android](http://facebook.github.io/react-native/docs/running-on-device-android.html)
+
+
+## Issue
+
+有時候第二次打開，
