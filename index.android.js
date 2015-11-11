@@ -6,18 +6,19 @@
 import React from 'react-native';
 import { Provider } from 'react-redux/native';
 // import AwesomeProject from './demo/AwesomeProject.js';
-import CounterContainer from './container/CounterContainer.js';
-import store from './store/counter.js';
+// import CounterContainer from './container/CounterContainer.js';
+// import store from './store/counter.js';
+import CounterApp from './apps/CounterApp.js';
 var {
-  AppRegistry, Component
+  AppRegistry, Component, View
 } = React;
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        {() => <CounterContainer />}
-      </Provider>
+      <View>
+        <CounterApp/>
+      </View>
     );
   }
 }

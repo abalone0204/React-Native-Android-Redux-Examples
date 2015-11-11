@@ -22,9 +22,6 @@ export default class CounterContainer extends Component {
     constructor(props) {
         super(props);
     }
-    _handlePress(e) {
-        console.log('fsuck');
-    }
     render() {
         return (
             <View>
@@ -33,7 +30,6 @@ export default class CounterContainer extends Component {
                         Counter
                     </Text>
                     <TouchableWithoutFeedback
-                        onPress={this._handlePress} 
                         style={styles.highlight}
                         underlayColor="white" 
                     >
