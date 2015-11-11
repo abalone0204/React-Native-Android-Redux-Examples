@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "test": "jest"
   },
   "dependencies": {
     "react-native": "^0.14.2",
@@ -21,6 +22,22 @@
   },
   "devDependencies": {
     "commitizen": "^2.4.4",
-    "cz-conventional-changelog": "^1.1.4"
+    "cz-conventional-changelog": "^1.1.4",
+    "jest-cli": "^0.7.1"
+  },
+  "jest": {
+    "scriptPreprocessor": "node_modules/react-native/jestSupport/scriptPreprocess.js",
+    "setupEnvScriptFile": "node_modules/react-native/jestSupport/env.js",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "packager/react-packager/src/Activity/"
+    ],
+    "testFileExtensions": [
+      "js"
+    ],
+    "unmockedModulePathPatterns": [
+      "promise",
+      "source-map"
+    ]
   }
 }
