@@ -39,6 +39,7 @@ prop: `configureScene` 可以用來決定 render 當情這個 scene 時要執行
 
 2. navigator 則可以執行一些 Navigator 提供給我們的 function
 
+- `getCurrentRoutes()`: 
 
 [參考資料](https://facebook.github.io/react-native/docs/navigator.html#content)
 
