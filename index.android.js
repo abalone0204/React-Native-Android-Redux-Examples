@@ -4,39 +4,37 @@
  */
 'use strict';
 import React from 'react-native';
-import { Provider } from 'react-redux/native';
-import NavigationView from './components/common/NavigationView.js';
+import NavView from './components/common/NavView.js';
 import CounterApp from './apps/CounterApp.js';
+import router from './routers/AppRouter.js';
 var {
-  AppRegistry, Component, View,
+  AppRegistry, Component, View, StyleSheet,
   Text, DrawerLayoutAndroid, Navigator
 } = React;
-
+import * as ROUTERS from './constants/routes.js';
 class App extends Component {
   renderScene(route, navigator) {
     return (
         <DrawerLayoutAndroid
           drawerWidth={300}
           drawerPosition={DrawerLayoutAndroid.positions.Right}
-          renderNavigationView={() => <NavigationView/>}
+          renderNavigationView={() => 
+            <NavView route={route} navigator={navigator}/>
+          }
         >
-            <CounterApp
-                name={route.name}
-            />   
+            {router(route)}
         </DrawerLayoutAndroid>   
     );    
   }
   render() {
-    
     var renderScene = this.renderScene;
     return (
             <Navigator
-                initialRoute={{name: 'CouterApp'}}
+                initialRoute={{name: ROUTERS.COUNTER_APP}}
                 renderScene={renderScene}
             />
     );
   }
 }
-
 
 AppRegistry.registerComponent('AwesomeProject', () => App);
