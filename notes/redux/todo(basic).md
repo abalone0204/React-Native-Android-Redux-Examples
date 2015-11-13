@@ -49,7 +49,50 @@ todo 之所以經典就是因為他除了簡單之外，
 ### Reducer
 
 reducer 其實只是一個函數，而且是純函數
-（意思是它不會有 side effect，所有事情都在 function 內發生，
+（意思是它不會有 side effcect，所有事情都在 function 內發生，
 並不會影響到任何的東西）
 
 `(previousState, action) => state`
+
+- 活用 combine reducer 可以讓程式碼變得更好維護，尤其是
+
+### Store
+
+state 最終會被放到 store 裡面存放，
+也就是 reducer 只是決定要更新的 state 長成怎樣
+最終還是要 dispatch 以後 state才能真正變動
+action -> reducer -> store
+
+## Data Flow
+
+講完這裡就要馬上講資料流
+當 action 發生之後
+其實是這樣改變狀態的 `store.dispatch(action)`
+只是中間會多了一層 reducer 來決定到底新的 state 要長怎樣
+
+`store.subscribe(listerner)`
+
+曾經我也對 listener 感到困惑，但其實前面例子有說到了，
+listener 也只是一個 function，
+但是這個 function 會在 store 裡面的 state 有變化時被呼叫。
+沒錯，就像我們 subscribe 了某個 utube 頻道，
+當那個頻道有新影片發佈時，我們會收到通知。
+而我們可以在 listener 這個 function裡面執行
+`console.log(state.getState())`可以拿到當前 store 的 state。
+
+- 因為我們是用 react-redux的關係，就是在這裡我們會在最上層放 state的 container 去執行 state。
+
+## Import to React
+
+### Smart & Dumb Component
+
+理論上來說我們只有最上層的 component 
+會subscribe redux 中的 state，
+因為它多「會」了這一項技能，所以我們把它稱為「Smart Component」。
+
+其餘沒有從 redux subscribe 的 component則稱為「Dumb Component」
+如果這是一篇只關於 redux 的教學，那著重應該會在 Smart Component的說明，
+可惜這是一篇 redux + react-native 的教學，
+我們必須來好好考慮要用哪些 Component ，
+畢竟這些並不是我們所熟悉的 html tag XD
+
