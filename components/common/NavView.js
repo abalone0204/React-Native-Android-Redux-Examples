@@ -11,9 +11,11 @@ export default class NavView extends Component {
         super(props);
         this.handlePress = this.handlePress.bind(this);
     }
-    handlePress(){
+    handlePress(target){
         let {route, navigator}=this.props;
-        navigator.push({name: "TodoApp"})
+        return function () {
+          navigator.push({name: target})  
+        }
     }
     renderNavItems(){
         let {route, navigator}=this.props;
@@ -21,20 +23,20 @@ export default class NavView extends Component {
     }
     render() {
         let {route, navigator}=this.props;
-        console.log(ROUTES);
+        let {TODO_APP, COUNTER_APP} = ROUTES;
         return (
             <View style={styles.navView}>
               <TouchableHighlight
                 style={styles.navItem}
                 underlayColor="#b1b1b1"
-                onPress={this.handlePress}
+                onPress={this.handlePress(COUNTER_APP)}
               >
                 <Text style={styles.navItemText}>Counter</Text>
               </TouchableHighlight>
               <TouchableHighlight
                 style={styles.navItem}
                 underlayColor="#b1b1b1"
-                onPress={this.handlePress}
+                onPress={this.handlePress(TODO_APP)}
               >
                 <Text style={styles.navItemText}>Todo</Text>
               </TouchableHighlight>

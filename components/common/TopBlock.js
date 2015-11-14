@@ -16,15 +16,7 @@ export default class TopBlock extends Component {
                     <Text style={styles.title}>
                         {text}
                     </Text>
-                    <TouchableWithoutFeedback
-                        style={styles.highlight}
-                        underlayColor="white" 
-                    >
-                        <Image
-                            style={styles.head}
-                            source={require('../../my-icon.png')}
-                        />
-                    </TouchableWithoutFeedback>
+                    
                 </View>             
             );
     }
@@ -34,26 +26,16 @@ TopBlock.defaultProps = {
 }
 var styles = StyleSheet.create({
     'title': {
-        flex: 1,
-        marginTop: 50,
+        flex:1,
         color: '#50e3c2',
         textAlign: 'center',
         fontSize: 30
     },
-    'highlight': {
-        borderRadius: 100
-    },
-    'head': {
-        flex: 1,
-        width: 200,
-        height: 200,
-        borderRadius: 100
-    },
     'topBlock': {
-        flex: 2,
-        flexDirection: 'row',
+        height: 100,
+        alignItems: 'center',
         justifyContent: 'center',
-        alignItems: 'flex-start',
+        flex: 1,
         backgroundColor: '#23263a'
     }
 });
