@@ -3,8 +3,8 @@ import thunk from 'redux-thunk';
 import counter from '../reducers/counter.js';
 import { bindActionCreators, combineReducers } from 'redux';
 import { connect } from 'react-redux/native';
-import * as CounterActions from '../actions/counter.js';
-import Counter from '../components/Counter/counter.js';
+import * as TodoActions from '../actions/todo.js';
+import TodoApp from '../components/TodoApp/TodoApp.js';
 import TopBlock from '../components/common/TopBlock.js';
 var {
     StyleSheet,
@@ -16,30 +16,30 @@ var {
     TouchableWithoutFeedback
 } = React;
 
-
-class CounterContainer extends Component {
-    constructor(props) {
-        super(props);
-    }
+class TodoContainer extends Component {
     render() {
         return (
             <View>
-                <TopBlock text="Counter"/>
-                <Counter {...this.props}></Counter>                
+                <TopBlock
+                    text="Todo"
+                />
+                <TodoApp/>
             </View>
-        )
+            );
     }
 }
 
 function mapStateToProps(state) {
+  let {todo, visibilityFilter} = state;
   return {
-    counter: state.counter
-  }
+    todo,
+    visibilityFilter
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(CounterActions, dispatch);
+  return bindActionCreators(TodoActions, dispatch);
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);
